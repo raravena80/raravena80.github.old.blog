@@ -4,7 +4,7 @@
   <title><![CDATA[Ricardo Aravena's Blog]]></title>
   <link href="http://raravena80.github.io/atom.xml" rel="self"/>
   <link href="http://raravena80.github.io/"/>
-  <updated>2013-10-22T17:51:19-07:00</updated>
+  <updated>2013-10-22T18:02:07-07:00</updated>
   <id>http://raravena80.github.io/</id>
   <author>
     <name><![CDATA[Ricardo Aravena]]></name>
@@ -28,9 +28,21 @@ It needs to be included in an ansible playbook.</p>
  be included in the HAProxy playbook as well as any other playbooks with something
  like this:</p>
 
-<p><figure class='code'><figcaption>Any playbook</figcaption><div class='highlight'><table><tr><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div></pre></td><td class='main  yaml'><pre><div class='line'><span class="nn">&mdash;&ndash;</span>
-</div><div class='line'> </div><div class='line'><span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">include tasks/scout.yml</span>
+<p><figure class='code'><figcaption>scout.yml</figcaption><div class='highlight'><table><tr><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div><div data-line='14' class='line-number'></div></pre></td><td class='main  yaml'><pre><div class='line'><span class="nn">&mdash;&ndash;</span>
+</div><div class='line'><span class="l-Scalar-Plain">PLAYBOOK</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Install scout in Ubuntu</span>
+</div><div class='line'><span class="nn">&mdash;&ndash;</span>
+</div><div class='line'><span class="c1"># Create a subset of users</span>
+</div><div class='line'><span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">scout</span>
+</div><div class='line'>  <span class="l-Scalar-Plain">hosts</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">all</span>
+</div><div class='line'>  <span class="l-Scalar-Plain">user</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">user-with-sudo</span>
+</div><div class='line'>  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">True</span>
+</div><div class='line'> </div><div class='line'>  <span class="l-Scalar-Plain">vars</span><span class="p-Indicator">:</span>
+</div><div class='line'>    <span class="l-Scalar-Plain">scout_key</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">YourScoutAPIKeyFromTheirWebsite</span>
+</div><div class='line'> </div><div class='line'>  <span class="l-Scalar-Plain">tasks</span><span class="p-Indicator">:</span>
+</div><div class='line'>    <span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">include</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tasks/scout.yml</span>
 </div></pre></td></tr></table></div></figure></p>
+
+<p>We start by defining a &ldquo;task&rdquo; file:</p>
 
 <p><figure class='code'><figcaption>tasks/scout.yml</figcaption><div class='highlight'><table><tr><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div><div data-line='14' class='line-number'></div><div data-line='15' class='line-number'></div></pre></td><td class='main  yaml'><pre><div class='line'><span class="nn">&mdash;&ndash;</span>
 </div><div class='line'><span class="c1"># TASK: ScoutApp Monitoring (<a href="https://scoutapp.com">https://scoutapp.com</a>) </span>
@@ -120,22 +132,6 @@ the system ruby (most of the times you don&rsquo;t).</p>
 </div><div class='line'>  <span class="l-Scalar-Plain">shell</span><span class="p-Indicator">:</span> <span class="p-Indicator">&gt;</span>
 </div><div class='line'>    <span class="no">executable=/bin/bash source /etc/profile.d/rvm.sh;</span>
 </div><div class='line'>    <span class="no">rvm &mdash;default use 2.0.0</span>
-</div></pre></td></tr></table></div></figure></p>
-
-<p>Now to make it all work you need a Playbook to run it.</p>
-
-<p><figure class='code'><figcaption>scout.yml</figcaption><div class='highlight'><table><tr><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div><div data-line='14' class='line-number'></div></pre></td><td class='main  yaml'><pre><div class='line'><span class="nn">&mdash;&ndash;</span>
-</div><div class='line'><span class="l-Scalar-Plain">PLAYBOOK</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Install scout in Ubuntu</span>
-</div><div class='line'><span class="nn">&mdash;&ndash;</span>
-</div><div class='line'><span class="c1"># Create a subset of users</span>
-</div><div class='line'><span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">scout</span>
-</div><div class='line'>  <span class="l-Scalar-Plain">hosts</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">all</span>
-</div><div class='line'>  <span class="l-Scalar-Plain">user</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">user-with-sudo</span>
-</div><div class='line'>  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">True</span>
-</div><div class='line'> </div><div class='line'>  <span class="l-Scalar-Plain">vars</span><span class="p-Indicator">:</span>
-</div><div class='line'>    <span class="l-Scalar-Plain">scout_key</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">YourScoutAPIKeyFromTheirWebsite</span>
-</div><div class='line'> </div><div class='line'>  <span class="l-Scalar-Plain">tasks</span><span class="p-Indicator">:</span>
-</div><div class='line'>    <span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">include</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tasks/scout.yml</span>
 </div></pre></td></tr></table></div></figure></p>
 
 <p>and now run it.</p>
