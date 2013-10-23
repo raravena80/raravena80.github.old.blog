@@ -109,10 +109,10 @@ It needs to be included in an ansible playbook.</p>
 </div><div class='line'> </div><div class='line'><span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">include tasks/scout.yml</span>
 </div></pre></td></tr></table></div></figure></p>
 
-<p><figure class='code'><figcaption>tasks/scout.yml</figcaption><div class='highlight'><table><tr><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div><div data-line='14' class='line-number'></div><div data-line='15' class='line-number'></div><div data-line='16' class='line-number'></div><div data-line='17' class='line-number'></div><div data-line='18' class='line-number'></div><div data-line='19' class='line-number'></div><div data-line='20' class='line-number'></div><div data-line='21' class='line-number'></div></pre></td><td class='main  yaml'><pre><div class='line'><span class="nn">&mdash;&ndash;</span>
+<p><figure class='code'><figcaption>tasks/scout.yml</figcaption><div class='highlight'><table><tr><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div><div data-line='14' class='line-number'></div><div data-line='15' class='line-number'></div></pre></td><td class='main  yaml'><pre><div class='line'><span class="nn">&mdash;&ndash;</span>
 </div><div class='line'><span class="c1"># TASK: ScoutApp Monitoring (<a href="https://scoutapp.com">https://scoutapp.com</a>) </span>
 </div><div class='line'> </div><div class='line'><span class="c1"># Separate task to install Ruby</span>
-</div><div class='line'><span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">include</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">../tasks/ruby.yml</span>
+</div><div class='line'><span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">include</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ruby.yml</span>
 </div><div class='line'> </div><div class='line'><span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Install scout + dependencies</span>
 </div><div class='line'>  <span class="l-Scalar-Plain">shell</span><span class="p-Indicator">:</span> <span class="p-Indicator">&gt;</span>
 </div><div class='line'>    <span class="no">executable=/bin/bash source /etc/profile.d/rvm.sh;</span>
@@ -121,28 +121,40 @@ It needs to be included in an ansible playbook.</p>
 </div><div class='line'>  <span class="l-Scalar-Plain">file</span><span class="p-Indicator">:</span> <span class="p-Indicator">&gt;</span>
 </div><div class='line'>    <span class="no">dest=/root/.scout state=directory</span>
 </div><div class='line'>    <span class="no">owner=root group=root mode=0700</span>
-</div><div class='line'> </div><div class='line'><span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Copy over scout public key</span>
-</div><div class='line'>  <span class="l-Scalar-Plain">copy</span><span class="p-Indicator">:</span> <span class="p-Indicator">&gt;</span>
-</div><div class='line'>    <span class="no">src=../packages/files/scout/scout_rsa.pub</span>
-</div><div class='line'>    <span class="no">dest=/root/.scout/scout_rsa.pub</span>
-</div><div class='line'>    <span class="no">owner=root group=root mode=0400</span>
 </div></pre></td></tr></table></div></figure></p>
 
 <p>In the same file add the crontab entry
-and logrotate entry for Scout</p>
+and logrotate entry for Scout.</p>
 
-<p><figure class='code'><figcaption>tasks/scout.yml</figcaption><div class='highlight'><table><tr><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div></pre></td><td class='main  yaml'><pre><div class='line'><span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Scout cron script crontab</span>
+<p><figure class='code'><figcaption>tasks/scout.yml</figcaption><div class='highlight'><table><tr><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div></pre></td><td class='main  yaml'><pre><div class='line'><span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Scout cron script crontab</span>
 </div><div class='line'>  <span class="l-Scalar-Plain">template</span><span class="p-Indicator">:</span> <span class="p-Indicator">&gt;</span>
 </div><div class='line'>    <span class="no">dest=/etc/cron.d/scout</span>
 </div><div class='line'>    <span class="no">src=../packages/templates/scout/scout-crontab.j2</span>
 </div><div class='line'>    <span class="no">owner=root group=root mode=0444</span>
-</div><div class='line'>  <span class="l-Scalar-Plain">when_string</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">$env == &#39;prod&#39;</span>
 </div><div class='line'> </div><div class='line'><span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Scout cron script logrotate</span>
 </div><div class='line'>  <span class="l-Scalar-Plain">copy</span><span class="p-Indicator">:</span> <span class="p-Indicator">&gt;</span>
 </div><div class='line'>    <span class="no">dest=/etc/logrotate.d/scout</span>
 </div><div class='line'>    <span class="no">src=../packages/files/scout/scout-logrotate</span>
 </div><div class='line'>    <span class="no">owner=root group=root mode=0444</span>
 </div></pre></td></tr></table></div></figure></p>
+
+<p>This is what scout-crontab.j2 looks like:</p>
+
+<p><figure class='code'><figcaption>templates/scout-crontab.j2</figcaption><div class='highlight'><table><tr><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div></pre></td><td class='main  jinja'><pre><div class='line'><span class="x"># crontab for Scout monitoring run by root</span>
+</div><div class='line'><span class="x">* * * * * root /bin/bash -l -c &#39;scout -n &quot;</span><span class="cp">&#x7b;&#x7b;</span> <span class="nv">ansible_fqdn</span> <span class="cp">}}</span><span class="x">&quot; </span><span class="cp">&#x7b;&#x7b;</span> <span class="nv">scout_key</span> <span class="cp">}}</span><span class="x">&#39; &gt;&gt; /var/log/scout.log 2&gt;&amp;1</span>
+</div></pre></td></tr></table></div></figure></p>
+
+<p>And this is what scout-logrotate looks like:</p>
+
+<p><figure class='code'><figcaption>files/scout-logrotate</figcaption><div class='highlight'><table><tr><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>/var/log/admobius/scout.log
+</div><div class='line'>{
+</div><div class='line'>      rotate 7
+</div><div class='line'>      daily
+</div><div class='line'>      compress
+</div><div class='line'>      delaycompress
+</div><div class='line'>      missingok
+</div><div class='line'>      notifempty
+</div><div class='line'>}</div></pre></td></tr></table></div></figure></p>
 
 <p>Now to install ruby using RVM, if you don&rsquo;t want to use
 the system ruby (most of the times you don&rsquo;t).</p>
@@ -185,6 +197,27 @@ the system ruby (most of the times you don&rsquo;t).</p>
 </div><div class='line'>  <span class="l-Scalar-Plain">shell</span><span class="p-Indicator">:</span> <span class="p-Indicator">&gt;</span>
 </div><div class='line'>    <span class="no">executable=/bin/bash source /etc/profile.d/rvm.sh;</span>
 </div><div class='line'>    <span class="no">rvm &mdash;default use 2.0.0</span>
+</div></pre></td></tr></table></div></figure></p>
+
+<p>Now to make it all work you need a Playbook to run it.</p>
+
+<p><figure class='code'><figcaption>scout.yml</figcaption><div class='highlight'><table><tr><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div><div data-line='14' class='line-number'></div></pre></td><td class='main  yaml'><pre><div class='line'><span class="nn">&mdash;&ndash;</span>
+</div><div class='line'><span class="l-Scalar-Plain">PLAYBOOK</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Install scout in Ubuntu</span>
+</div><div class='line'><span class="nn">&mdash;&ndash;</span>
+</div><div class='line'><span class="c1"># Create a subset of users</span>
+</div><div class='line'><span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">scout</span>
+</div><div class='line'>  <span class="l-Scalar-Plain">hosts</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">all</span>
+</div><div class='line'>  <span class="l-Scalar-Plain">user</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">user-with-sudo</span>
+</div><div class='line'>  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">True</span>
+</div><div class='line'> </div><div class='line'>  <span class="l-Scalar-Plain">vars</span><span class="p-Indicator">:</span>
+</div><div class='line'>    <span class="l-Scalar-Plain">scout_key</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">YourScoutAPIKeyFromTheirWebsite</span>
+</div><div class='line'> </div><div class='line'>  <span class="l-Scalar-Plain">tasks</span><span class="p-Indicator">:</span>
+</div><div class='line'>    <span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">include</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tasks/scout.yml</span>
+</div></pre></td></tr></table></div></figure></p>
+
+<p>and now run it.</p>
+
+<p><figure class='code'><figcaption>run.sh</figcaption><div class='highlight'><table><tr><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  bash'><pre><div class='line'>ansible-playbook -T 120 scout.yml
 </div></pre></td></tr></table></div></figure></p>
 </div>
 
