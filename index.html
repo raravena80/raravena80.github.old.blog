@@ -10,8 +10,8 @@
 
   
   <meta name="description" content="This is a sample Ansible task (http://www.ansibleworks.com)
-on how to setup Scout (https://www.scoutapp.com)
-It needs to be included in an ansible &hellip;">
+on how to setup Scout (https://www.scoutapp.com) on Ubuntu.
+It needs to be included in an &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -73,7 +73,7 @@ It needs to be included in an ansible &hellip;">
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2013/10/22/ansible-playbook-for-scout/">Ansible Playbook for Scout</a></h1>
+      <h1 class="entry-title"><a href="/blog/2013/10/22/ansible-playbook-for-scout-on-ubuntu/">Ansible Playbook for Scout on Ubuntu</a></h1>
     
     
       <p class="meta">
@@ -91,7 +91,7 @@ It needs to be included in an ansible &hellip;">
 
 <time datetime="2013-10-22T00:00:00-07:00" pubdate data-updated="true">Oct 22<span>nd</span>, 2013</time>
         
-         | <a href="/blog/2013/10/22/ansible-playbook-for-scout/#disqus_thread">Comments</a>
+         | <a href="/blog/2013/10/22/ansible-playbook-for-scout-on-ubuntu/#disqus_thread">Comments</a>
         
       </p>
     
@@ -99,7 +99,7 @@ It needs to be included in an ansible &hellip;">
 
 
   <div class="entry-content"><p>This is a sample Ansible task (<a href="http://www.ansibleworks.com">http://www.ansibleworks.com</a>)
-on how to setup Scout (<a href="https://www.scoutapp.com">https://www.scoutapp.com</a>)
+on how to setup Scout (<a href="https://www.scoutapp.com">https://www.scoutapp.com</a>) on Ubuntu.
 It needs to be included in an ansible playbook.</p>
 
 <p>It&rsquo;s a follow up to a previous
@@ -112,9 +112,10 @@ It needs to be included in an ansible playbook.</p>
 </div><div class='line'> </div><div class='line'><span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">include tasks/scout.yml</span>
 </div></pre></td></tr></table></div></figure></p>
 
-<p><figure class='code'><figcaption>scout.yml</figcaption><div class='highlight'><table><tr><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div><div data-line='14' class='line-number'></div><div data-line='15' class='line-number'></div><div data-line='16' class='line-number'></div><div data-line='17' class='line-number'></div><div data-line='18' class='line-number'></div><div data-line='19' class='line-number'></div><div data-line='20' class='line-number'></div><div data-line='21' class='line-number'></div><div data-line='22' class='line-number'></div><div data-line='23' class='line-number'></div><div data-line='24' class='line-number'></div><div data-line='25' class='line-number'></div><div data-line='26' class='line-number'></div><div data-line='27' class='line-number'></div><div data-line='28' class='line-number'></div><div data-line='29' class='line-number'></div><div data-line='30' class='line-number'></div><div data-line='31' class='line-number'></div><div data-line='32' class='line-number'></div><div data-line='33' class='line-number'></div><div data-line='34' class='line-number'></div><div data-line='35' class='line-number'></div><div data-line='36' class='line-number'></div><div data-line='37' class='line-number'></div><div data-line='38' class='line-number'></div></pre></td><td class='main  yaml'><pre><div class='line'><span class="nn">&mdash;&ndash;</span>
+<p><figure class='code'><figcaption>tasks/scout.yml</figcaption><div class='highlight'><table><tr><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div><div data-line='14' class='line-number'></div><div data-line='15' class='line-number'></div><div data-line='16' class='line-number'></div><div data-line='17' class='line-number'></div><div data-line='18' class='line-number'></div><div data-line='19' class='line-number'></div><div data-line='20' class='line-number'></div><div data-line='21' class='line-number'></div></pre></td><td class='main  yaml'><pre><div class='line'><span class="nn">&mdash;&ndash;</span>
 </div><div class='line'><span class="c1"># TASK: ScoutApp Monitoring (<a href="https://scoutapp.com">https://scoutapp.com</a>) </span>
-</div><div class='line'> </div><div class='line'><span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">include</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">../tasks/ruby-apt.yml</span>
+</div><div class='line'> </div><div class='line'><span class="c1"># Separate task to install Ruby</span>
+</div><div class='line'><span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">include</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">../tasks/ruby.yml</span>
 </div><div class='line'> </div><div class='line'><span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Install scout + dependencies</span>
 </div><div class='line'>  <span class="l-Scalar-Plain">shell</span><span class="p-Indicator">:</span> <span class="p-Indicator">&gt;</span>
 </div><div class='line'>    <span class="no">executable=/bin/bash source /etc/profile.d/rvm.sh;</span>
@@ -128,14 +129,15 @@ It needs to be included in an ansible playbook.</p>
 </div><div class='line'>    <span class="no">src=../packages/files/scout/scout_rsa.pub</span>
 </div><div class='line'>    <span class="no">dest=/root/.scout/scout_rsa.pub</span>
 </div><div class='line'>    <span class="no">owner=root group=root mode=0400</span>
-</div><div class='line'> </div><div class='line'><span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Creating admobius directories</span>
-</div><div class='line'>  <span class="l-Scalar-Plain">file</span><span class="p-Indicator">:</span> <span class="p-Indicator">&gt;</span>
-</div><div class='line'>    <span class="no">dest=/usr/share/admobius/bin</span>
-</div><div class='line'>    <span class="no">state=directory owner=root group=ambot mode=0755</span>
-</div><div class='line'> </div><div class='line'><span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Scout cron script crontab</span>
+</div></pre></td></tr></table></div></figure></p>
+
+<p>In the same file add the crontab entry
+and logrotate entry for Scout</p>
+
+<p><figure class='code'><figcaption>tasks/scout.yml</figcaption><div class='highlight'><table><tr><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div></pre></td><td class='main  yaml'><pre><div class='line'><span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Scout cron script crontab</span>
 </div><div class='line'>  <span class="l-Scalar-Plain">template</span><span class="p-Indicator">:</span> <span class="p-Indicator">&gt;</span>
 </div><div class='line'>    <span class="no">dest=/etc/cron.d/scout</span>
-</div><div class='line'>    <span class="no">src=../packages/templates/scout/scout-crontab.r2</span>
+</div><div class='line'>    <span class="no">src=../packages/templates/scout/scout-crontab.j2</span>
 </div><div class='line'>    <span class="no">owner=root group=root mode=0444</span>
 </div><div class='line'>  <span class="l-Scalar-Plain">when_string</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">$env == &#39;prod&#39;</span>
 </div><div class='line'> </div><div class='line'><span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Scout cron script logrotate</span>
@@ -143,6 +145,49 @@ It needs to be included in an ansible playbook.</p>
 </div><div class='line'>    <span class="no">dest=/etc/logrotate.d/scout</span>
 </div><div class='line'>    <span class="no">src=../packages/files/scout/scout-logrotate</span>
 </div><div class='line'>    <span class="no">owner=root group=root mode=0444</span>
+</div></pre></td></tr></table></div></figure></p>
+
+<p>Now to install ruby using RVM, if you don&rsquo;t want to use
+the system ruby (most of the times you don&rsquo;t).</p>
+
+<p><figure class='code'><figcaption>tasks/ruby.yml</figcaption><div class='highlight'><table><tr><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div><div data-line='14' class='line-number'></div><div data-line='15' class='line-number'></div><div data-line='16' class='line-number'></div><div data-line='17' class='line-number'></div><div data-line='18' class='line-number'></div><div data-line='19' class='line-number'></div><div data-line='20' class='line-number'></div><div data-line='21' class='line-number'></div><div data-line='22' class='line-number'></div><div data-line='23' class='line-number'></div><div data-line='24' class='line-number'></div><div data-line='25' class='line-number'></div><div data-line='26' class='line-number'></div><div data-line='27' class='line-number'></div><div data-line='28' class='line-number'></div><div data-line='29' class='line-number'></div><div data-line='30' class='line-number'></div><div data-line='31' class='line-number'></div><div data-line='32' class='line-number'></div><div data-line='33' class='line-number'></div><div data-line='34' class='line-number'></div><div data-line='35' class='line-number'></div><div data-line='36' class='line-number'></div><div data-line='37' class='line-number'></div><div data-line='38' class='line-number'></div><div data-line='39' class='line-number'></div><div data-line='40' class='line-number'></div><div data-line='41' class='line-number'></div><div data-line='42' class='line-number'></div></pre></td><td class='main  yaml'><pre><div class='line'><span class="nn">&mdash;&ndash;</span>
+</div><div class='line'><span class="c1"># TASK: Install Ruby on Ubuntu</span>
+</div><div class='line'> </div><div class='line'><span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Install Ruby dependencies</span>
+</div><div class='line'>  <span class="l-Scalar-Plain">apt</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">pkg=$item state=latest install_recommends=no</span>
+</div><div class='line'>  <span class="l-Scalar-Plain">with_items</span><span class="p-Indicator">:</span>
+</div><div class='line'>    <span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">autoconf</span>
+</div><div class='line'>    <span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">automake</span>
+</div><div class='line'>    <span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">bison</span>
+</div><div class='line'>    <span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">build-essential</span>
+</div><div class='line'>    <span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">curl</span>
+</div><div class='line'>    <span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">libc6-dev</span>
+</div><div class='line'>    <span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">libgdbm-dev</span>
+</div><div class='line'>    <span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">libffi-dev</span>
+</div><div class='line'>    <span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">libncurses5-dev</span>
+</div><div class='line'>    <span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">libreadline6</span>
+</div><div class='line'>    <span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">libreadline6-dev</span>
+</div><div class='line'>    <span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">libsqlite3-dev</span>
+</div><div class='line'>    <span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">libssl-dev</span>
+</div><div class='line'>    <span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">libtool</span>
+</div><div class='line'>    <span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">libyaml-dev</span>
+</div><div class='line'>    <span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">libxml2-dev</span>
+</div><div class='line'>    <span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">libxslt1-dev</span>
+</div><div class='line'>    <span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">openssl</span>
+</div><div class='line'>    <span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">pkg-config</span>
+</div><div class='line'>    <span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">sqlite3</span>
+</div><div class='line'>    <span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">subversion</span>
+</div><div class='line'>    <span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">zlib1g</span>
+</div><div class='line'>    <span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">zlib1g-dev</span>
+</div><div class='line'> </div><div class='line'><span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Install RVM</span>
+</div><div class='line'>  <span class="l-Scalar-Plain">shell</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">curl -L get.rvm.io | bash -s stable</span>
+</div><div class='line'> </div><div class='line'><span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Install Ruby 2.0.0</span>
+</div><div class='line'>  <span class="l-Scalar-Plain">shell</span><span class="p-Indicator">:</span> <span class="p-Indicator">&gt;</span>
+</div><div class='line'>    <span class="no">executable=/bin/bash source /etc/profile.d/rvm.sh;</span>
+</div><div class='line'>    <span class="no">rvm install 2.0.0</span>
+</div><div class='line'> </div><div class='line'><span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Set default ruby version</span>
+</div><div class='line'>  <span class="l-Scalar-Plain">shell</span><span class="p-Indicator">:</span> <span class="p-Indicator">&gt;</span>
+</div><div class='line'>    <span class="no">executable=/bin/bash source /etc/profile.d/rvm.sh;</span>
+</div><div class='line'>    <span class="no">rvm &mdash;default use 2.0.0</span>
 </div></pre></td></tr></table></div></figure></p>
 </div>
   
@@ -628,7 +673,7 @@ More on this later&hellip;</p>
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2013/10/22/ansible-playbook-for-scout/">Ansible Playbook for Scout</a>
+        <a href="/blog/2013/10/22/ansible-playbook-for-scout-on-ubuntu/">Ansible Playbook for Scout on Ubuntu</a>
       </li>
     
       <li class="post">
