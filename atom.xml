@@ -4,7 +4,7 @@
   <title><![CDATA[Ricardo Aravena's Blog]]></title>
   <link href="http://raravena80.github.io/atom.xml" rel="self"/>
   <link href="http://raravena80.github.io/"/>
-  <updated>2013-10-24T19:28:21-07:00</updated>
+  <updated>2013-10-25T14:54:56-07:00</updated>
   <id>http://raravena80.github.io/</id>
   <author>
     <name><![CDATA[Ricardo Aravena]]></name>
@@ -48,7 +48,7 @@ well as the <a href="http://aws.amazon.com/documentation/cloudformation/">AWS Cl
 </div><div class='line'>      <span class="nt">&quot;MaxLength&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
 </div><div class='line'>      <span class="nt">&quot;AllowedValues&quot;</span><span class="p">:[</span>
 </div><div class='line'>        <span class="s2">&quot;Production&quot;</span><span class="p">,</span>
-</div><div class='line'>        <span class="s2">&quot;Dev&quot;</span><span class="p">,</span>
+</div><div class='line'>        <span class="s2">&quot;Dev&quot;</span>
 </div><div class='line'>      <span class="p">],</span>
 </div><div class='line'>      <span class="nt">&quot;ConstraintDescription&quot;</span><span class="p">:</span><span class="s2">&quot;Must be either &#39;Production&#39;, or &#39;Dev&#39;&quot;</span>
 </div><div class='line'>    <span class="p">},</span>
@@ -228,7 +228,7 @@ we are using.
 </div><div class='line'>             <span class="nt">&quot;Fn::Join&quot;</span><span class="p">:</span> <span class="p">[</span>
 </div><div class='line'>                 <span class="s2">&quot;\n&quot;</span><span class="p">,</span>
 </div><div class='line'>                 <span class="p">[</span> <span class="s2">&quot;#!/bin/bash&quot;</span><span class="p">,</span>
-</div><div class='line'>                   <span class="p">{</span> <span class="nt">&quot;Fn::Join&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="p">[</span> <span class="s2">&quot;ENV=&#39;&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nt">&quot;Fn::FindInMap&quot;</span><span class="p">:[</span> <span class="s2">&quot;AWSAccountInfo&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nt">&quot;Ref&quot;</span><span class="p">:</span><span class="s2">&quot;AwsAccount&quot;</span> <span class="p">},</span> <span class="s2">&quot;envName&quot;</span> <span class="p">]</span> <span class="p">},</span> <span class="s2">&quot;&#39;&quot;</span> <span class="p">]</span> <span class="p">]</span> <span class="p">},</span>
+</div><div class='line'>                   <span class="p">{</span> <span class="nt">&quot;Fn::Join&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="p">[</span> <span class="s2">&quot;ENV=&#39;&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nt">&quot;Fn::FindInMap&quot;</span><span class="p">:[</span> <span class="s2">&quot;AWSAccountInfo&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nt">&quot;Ref&quot;</span><span class="p">:</span><span class="s2">&quot;AwsAccount&quot;</span> <span class="p">},</span> <span class="s2">&quot;envName&quot;</span> <span class="p">]</span> <span class="p">},</span> <span class="s2">&quot;&#39;&quot;</span> <span class="p">]</span> <span class="p">]</span> <span class="p">}</span>
 </div><div class='line'>                 <span class="p">]</span>
 </div><div class='line'>             <span class="p">]</span>
 </div><div class='line'>          <span class="p">}</span>
@@ -397,7 +397,7 @@ An RDS instance can also be added to this template.</p>
 </div><div class='line'>        <span class="p">]</span>
 </div><div class='line'>      <span class="p">}</span>
 </div><div class='line'>    <span class="p">}</span><span class="err">,</span>
-</div><div class='line'>    <span class="s2">&quot;RdsMetaSlaveIngress&quot;</span><span class="err">:</span><span class="p">{</span>
+</div><div class='line'>    <span class="s2">&quot;RdsIngress&quot;</span><span class="err">:</span><span class="p">{</span>
 </div><div class='line'>      <span class="nt">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;AWS::RDS::DBSecurityGroupIngress&quot;</span><span class="p">,</span>
 </div><div class='line'>      <span class="nt">&quot;Properties&quot;</span><span class="p">:{</span>
 </div><div class='line'>        <span class="nt">&quot;DBSecurityGroupName&quot;</span><span class="p">:</span><span class="s2">&quot;web-dbbackend&quot;</span><span class="p">,</span>
@@ -405,7 +405,7 @@ An RDS instance can also be added to this template.</p>
 </div><div class='line'>          <span class="nt">&quot;Ref&quot;</span><span class="p">:</span><span class="s2">&quot;InstanceSecurityGroup&quot;</span>
 </div><div class='line'>        <span class="p">}</span>
 </div><div class='line'>      <span class="p">}</span>
-</div><div class='line'>    <span class="p">}</span><span class="err">,</span>
+</div><div class='line'>    <span class="p">}</span>
 </div></pre></td></tr></table></div></figure></p>
 
 <p>Finally some outputs.</p>
@@ -432,6 +432,9 @@ An RDS instance can also be added to this template.</p>
 </div><div class='line'>  <span class="p">}</span>
 </div><div class='line'><span class="err">}</span>
 </div></pre></td></tr></table></div></figure></p>
+
+<p>To verify that syntax of your JSON script, save the full file to something
+like <code>cf.json</code> and run: <code>python -mjson.tool cf.json</code></p>
 ]]></content>
   </entry>
   

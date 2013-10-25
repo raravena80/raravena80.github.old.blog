@@ -4,7 +4,7 @@
   <title><![CDATA[Category: cloudformation | Ricardo Aravena's Blog]]></title>
   <link href="http://raravena80.github.io/blog/categories/cloudformation/atom.xml" rel="self"/>
   <link href="http://raravena80.github.io/"/>
-  <updated>2013-10-24T19:28:21-07:00</updated>
+  <updated>2013-10-25T14:54:56-07:00</updated>
   <id>http://raravena80.github.io/</id>
   <author>
     <name><![CDATA[Ricardo Aravena]]></name>
@@ -50,7 +50,7 @@ well as the <a href="http://aws.amazon.com/documentation/cloudformation/">AWS Cl
   "MaxLength":"1",
   "AllowedValues":[
     "Production",
-    "Dev",
+    "Dev"
   ],
   "ConstraintDescription":"Must be either 'Production', or 'Dev'"
 },
@@ -243,7 +243,7 @@ we are using.
          "Fn::Join": [
              "\n",
              [ "#!/bin/bash",
-               { "Fn::Join": [ "", [ "ENV='", { "Fn::FindInMap":[ "AWSAccountInfo", { "Ref":"AwsAccount" }, "envName" ] }, "'" ] ] },
+               { "Fn::Join": [ "", [ "ENV='", { "Fn::FindInMap":[ "AWSAccountInfo", { "Ref":"AwsAccount" }, "envName" ] }, "'" ] ] }
              ]
          ]
       }
@@ -427,7 +427,7 @@ An RDS instance can also be added to this template.</p>
     ]
   }
 },
-"RdsMetaSlaveIngress":{
+"RdsIngress":{
   "Type":"AWS::RDS::DBSecurityGroupIngress",
   "Properties":{
     "DBSecurityGroupName":"web-dbbackend",
@@ -435,7 +435,7 @@ An RDS instance can also be added to this template.</p>
       "Ref":"InstanceSecurityGroup"
     }
   }
-},
+}
 </code></pre>
 
 <p>```
@@ -467,6 +467,9 @@ Finally some outputs.</p>
 <p>  }
 }
 ```</p>
+
+<p>To verify that syntax of your JSON script, save the full file to something
+like <code>cf.json</code> and run: <code>python -mjson.tool cf.json</code></p>
 ]]></content>
   </entry>
   
