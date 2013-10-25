@@ -106,7 +106,7 @@ It needs to be included in an ansible playbook.</p>
  like this:</p>
 
 <p><figure class='code'><figcaption>scout.yml</figcaption><div class='highlight'><table><tr><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div></pre></td><td class='main  yaml'><pre><div class='line'><span class="nn">&mdash;&ndash;</span>
-</div><div class='line'><span class="l-Scalar-Plain">PLAYBOOK</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Install scout in Ubuntu</span>
+</div><div class='line'><span class="l-Scalar-Plain">PLAYBOOK</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Install scout on Ubuntu</span>
 </div><div class='line'><span class="nn">&mdash;&ndash;</span>
 </div><div class='line'><span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">scout</span>
 </div><div class='line'>  <span class="l-Scalar-Plain">hosts</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">all</span>
@@ -137,7 +137,7 @@ It needs to be included in an ansible playbook.</p>
 <p>In the same file add the crontab entry
 and logrotate entry for Scout.</p>
 
-<p><figure class='code'><figcaption>tasks/scout.yml</figcaption><div class='highlight'><table><tr><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div></pre></td><td class='main  yaml'><pre><div class='line'><span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Scout cron script crontab</span>
+<p><figure class='code'><figcaption>tasks/scout.yml</figcaption><div class='highlight'><table><tr><td class='line-numbers' aria-hidden='true'><pre><div data-line='17' class='line-number'></div><div data-line='18' class='line-number'></div><div data-line='19' class='line-number'></div><div data-line='20' class='line-number'></div><div data-line='21' class='line-number'></div><div data-line='22' class='line-number'></div><div data-line='23' class='line-number'></div><div data-line='24' class='line-number'></div><div data-line='25' class='line-number'></div><div data-line='26' class='line-number'></div><div data-line='27' class='line-number'></div></pre></td><td class='main  yaml'><pre><div class='line'><span class="p-Indicator">&ndash;</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Scout cron script crontab</span>
 </div><div class='line'>  <span class="l-Scalar-Plain">template</span><span class="p-Indicator">:</span> <span class="p-Indicator">&gt;</span>
 </div><div class='line'>    <span class="no">dest=/etc/cron.d/scout</span>
 </div><div class='line'>    <span class="no">src=../packages/templates/scout/scout-crontab.j2</span>
@@ -212,8 +212,7 @@ the system ruby (most of the times you don&rsquo;t).</p>
 
 <p>and now run it.</p>
 
-<p><figure class='code'><figcaption>run.sh</figcaption><div class='highlight'><table><tr><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  bash'><pre><div class='line'>ansible-playbook -T 120 scout.yml
-</div></pre></td></tr></table></div></figure></p>
+<p><code>ansible-playbook -T 120 scout.yml</code></p>
 </div>
 
 
@@ -260,6 +259,8 @@ the system ruby (most of the times you don&rsquo;t).</p>
         <a class="basic-alignment left" href="/blog/2013/10/21/upgrade-linux-kernel-on-chromebook/" title="Previous Post: Upgrade Linux Kernel on Chromebook">&laquo; Upgrade Linux Kernel on Chromebook</a>
       
       
+        <a class="basic-alignment right" href="/blog/2013/10/24/simple-clouformation-with-multiple-aws-accounts/" title="Next Post: Simple Clouformation With Multiple AWS Accounts">Simple Clouformation With Multiple AWS Accounts &raquo;</a>
+      
     </p>
   </footer>
 </article>
@@ -283,6 +284,10 @@ the system ruby (most of the times you don&rsquo;t).</p>
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/10/24/simple-clouformation-with-multiple-aws-accounts/">Simple Clouformation With Multiple AWS Accounts</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/10/22/ansible-playbook-for-scout-on-ubuntu/">Ansible Playbook for Scout on Ubuntu</a>
