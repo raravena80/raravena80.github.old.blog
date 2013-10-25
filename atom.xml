@@ -4,7 +4,7 @@
   <title><![CDATA[Ricardo Aravena's Blog]]></title>
   <link href="http://raravena80.github.io/atom.xml" rel="self"/>
   <link href="http://raravena80.github.io/"/>
-  <updated>2013-10-25T14:54:56-07:00</updated>
+  <updated>2013-10-25T16:51:32-07:00</updated>
   <id>http://raravena80.github.io/</id>
   <author>
     <name><![CDATA[Ricardo Aravena]]></name>
@@ -434,7 +434,7 @@ An RDS instance can also be added to this template.</p>
 </div></pre></td></tr></table></div></figure></p>
 
 <p>To verify that syntax of your JSON script, save the full file to something
-like <code>cf.json</code> and run: <code>python -mjson.tool cf.json</code></p>
+like <code>cf.json</code> and run: <code>cat cf.json | python -mjson.tool</code></p>
 ]]></content>
   </entry>
   
