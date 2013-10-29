@@ -18,7 +18,7 @@
         <loc>
             http://raravena80.github.io/blog/2013/10/22/ansible-playbook-for-scout-on-ubuntu/
         </loc>
-        <lastmod>2013-10-24T18:43:11-07:00</lastmod>
+        <lastmod>2013-10-29T11:58:56-07:00</lastmod>
     </url>
     <url>
         <loc>
@@ -27,12 +27,18 @@
         <lastmod>2013-10-25T16:50:55-07:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://raravena80.github.io/blog/2013/10/29/ansible-playbook-for-papertrail-on-ubuntu/
+        </loc>
+        <lastmod>2013-10-29T13:54:00-07:00</lastmod>
+    </url>
+    <url>
         <loc>http://raravena80.github.io/blog/archives/blog/archives/</loc>
-        <lastmod>2013-10-25T16:50:55-07:00</lastmod>
+        <lastmod>2013-10-29T13:54:00-07:00</lastmod>
     </url>
     <url>
         <loc>http://raravena80.github.io/</loc>
-        <lastmod>2013-10-25T16:50:55-07:00</lastmod>
+        <lastmod>2013-10-29T13:54:00-07:00</lastmod>
     </url>
     <url>
         <loc>http://raravena80.github.io/robots.txt</loc>
