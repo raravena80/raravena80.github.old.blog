@@ -4,7 +4,7 @@
   <title><![CDATA[Ricardo Aravena's Blog]]></title>
   <link href="http://raravena80.github.io/atom.xml" rel="self"/>
   <link href="http://raravena80.github.io/"/>
-  <updated>2013-10-29T21:33:26-07:00</updated>
+  <updated>2013-10-29T21:39:04-07:00</updated>
   <id>http://raravena80.github.io/</id>
   <author>
     <name><![CDATA[Ricardo Aravena]]></name>
@@ -20,12 +20,11 @@
     <id>http://raravena80.github.io/blog/2013/10/29/ansible-playbook-for-papertrail-on-ubuntu</id>
     <content type="html"><![CDATA[<p>This posts describes how to create a simple
 <a href="http://www.ansibleworks.com">Ansible</a> task
-on how to setup <a href="https://www.papertrailapp.com">PaperTrail</a> on Ubuntu.
-Because it&rsquo;s a <code>task</code> it needs to be included in an ansible playbook.</p>
+on how to setup <a href="https://www.papertrailapp.com">PaperTrail</a> on Ubuntu.</p>
 
 <p>It&rsquo;s a follow up to a previous
  <a href="http://raravena80.github.io/blog/2013/10/21/how-to-create-an-ansible-playbook-to-configure-haproxy/">blog</a>
- describing an Ansible Playbook to setup an HAProxy system. This Ansible task can
+ describing an Ansible Playbook to setup an HAProxy system. This Ansible <code>task</code> can
  be included in the HAProxy playbook as well as any other playbooks with something
  like this:</p>
 
