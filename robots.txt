@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: 
-
-Sitemap: http://raravena80.github.io/sitemap.xml 
